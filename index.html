@@ -3,112 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Modas Valentina</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f8f1e7;
-  color:#333;
+background:#f8f1e7;
+color:#333;
 }
 
 header{
-  background:#d4af37;
-  color:white;
-  text-align:center;
-  padding:30px;
+background:#d4af37;
+color:white;
+padding:20px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+max-width:180px;
+border-radius:15px;
+margin-bottom:10px;
+}
+
+nav{
+margin-top:10px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 10px;
+font-weight:bold;
 }
 
 .hero{
-  text-align:center;
-  padding:60px 20px;
+padding:60px 20px;
+text-align:center;
 }
 
 .hero h1{
-  font-size:40px;
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.carrinho-topo{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+padding:10px 15px;
+border-radius:30px;
+box-shadow:0 3px 10px rgba(0,0,0,.2);
+font-weight:bold;
 }
 
 .produtos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:30px;
 }
 
 .card{
-  background:white;
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,.1);
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.preco{
+font-size:22px;
+font-weight:bold;
+color:#d4af37;
+margin:10px 0;
 }
 
 .btn{
-  background:#d4af37;
-  color:white;
-  padding:12px 20px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  text-decoration:none;
+background:#d4af37;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.btn:hover{
+opacity:0.9;
+}
+
+.contato{
+padding:50px 20px;
+text-align:center;
 }
 
 footer{
-  text-align:center;
-  padding:30px;
-  background:#222;
-  color:white;
+background:#222;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
 }
+
 </style>
 </head>
-
 <body>
 
+<div class="carrinho-topo">
+🛒 Itens: <span id="contador">0</span>
+</div>
+
 <header>
+
+<!-- TROQUE PELO LINK DA SUA LOGO -->
+<img src="logo.png" class="logo">
+
 <h1>Modas Valentina</h1>
 <p>Seu estilo, sua essência</p>
+
+<nav>
+<a href="#">Início</a>
+<a href="#produtos">Produtos</a>
+<a href="#contato">Contato</a>
+</nav>
+
 </header>
 
 <section class="hero">
-<h1>Moda Feminina</h1>
-<p>Peças modernas e elegantes para você.</p>
+<h1>Moda Feminina Elegante</h1>
+<p>Peças modernas para valorizar sua beleza.</p>
 </section>
 
-<section class="produtos">
+<section id="produtos" class="produtos">
 
 <div class="card">
-<h3>Blusa com Amarração nas Costas</h3>
-<p>R$ 39,99</p>
+<img src="https://via.placeholder.com/300x400">
+<h3>Conjunto Vinho</h3>
+<div class="preco">R$ 39,99</div>
+<button class="btn" onclick="addCarrinho('Conjunto Vinho - R$39,99')">
+Adicionar ao Carrinho
+</button>
 </div>
 
 <div class="card">
-<h3>Blusa com Detalhe na Manga</h3>
-<p>R$ 34,99</p>
+<img src="https://via.placeholder.com/300x400">
+<h3>Blusa Feminina com Amarração Atrás</h3>
+<div class="preco">R$ 39,99</div>
+<button class="btn" onclick="addCarrinho('Blusa Feminina com Amarração Atrás - R$39,99')">
+Adicionar ao Carrinho
+</button>
 </div>
 
 <div class="card">
+<img src="https://via.placeholder.com/300x400">
+<h3>Blusa Feminina Detalhe na Manga</h3>
+<div class="preco">R$ 34,99</div>
+<button class="btn" onclick="addCarrinho('Blusa Feminina Detalhe na Manga - R$34,99')">
+Adicionar ao Carrinho
+</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x400">
 <h3>Vestido com Abertura Lateral</h3>
-<p>R$ 39,99</p>
+<div class="preco">R$ 39,99</div>
+<button class="btn" onclick="addCarrinho('Vestido com Abertura Lateral - R$39,99')">
+Adicionar ao Carrinho
+</button>
 </div>
 
 <div class="card">
+<img src="https://via.placeholder.com/300x400">
 <h3>Blusa Feminina</h3>
-<p>R$ 39,99</p>
+<div class="preco">R$ 39,99</div>
+<button class="btn" onclick="addCarrinho('Blusa Feminina - R$39,99')">
+Adicionar ao Carrinho
+</button>
 </div>
 
 </section>
 
-<section style="text-align:center;padding:40px;">
-<a class="btn" href="https://wa.me/5577991141353">
-Comprar pelo WhatsApp
+<section class="contato" id="contato">
+
+<h2>Finalizar Pedido</h2>
+<br>
+
+<button class="btn" onclick="finalizarPedido()">
+📲 Comprar pelo WhatsApp
+</button>
+
+<br><br>
+
+<a href="https://www.instagram.com/modasvalentina01" target="_blank">
+📸 Instagram @modasvalentina01
 </a>
+
+<br><br>
+
+<p>
+📍 Praça Arlindo Rodrigues, 13<br>
+Vitória da Conquista - BA<br>
+CEP 45000-710
+</p>
+
 </section>
 
 <footer>
-<p>Instagram: @modasvalentina01</p>
+
+<p>Modas Valentina</p>
 <p>WhatsApp: (77) 99114-1353</p>
+<p>Email: modasv285@gmail.com</p>
+
 </footer>
+
+<script>
+
+let carrinho = [];
+
+function addCarrinho(produto){
+
+carrinho.push(produto);
+
+document.getElementById('contador').innerText =
+carrinho.length;
+
+alert(produto + " adicionado ao carrinho!");
+
+}
+
+function finalizarPedido(){
+
+if(carrinho.length === 0){
+alert("Seu carrinho está vazio.");
+return;
+}
+
+let mensagem =
+"Olá! Quero comprar:%0A%0A";
+
+carrinho.forEach(item=>{
+mensagem += "• " + item + "%0A";
+});
+
+window.open(
+"https://wa.me/5577991141353?text="+mensagem,
+"_blank"
+);
+
+}
+
+</script>
 
 </body>
 </html>

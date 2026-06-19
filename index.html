@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Modas Valentina</title>
 
 <style>
@@ -21,56 +20,39 @@ color:#333;
 }
 
 header{
-background:#d4af37;
-color:white;
-padding:20px;
+background:linear-gradient(135deg,#d4af37,#b8860b);
+padding:30px;
 text-align:center;
-position:sticky;
-top:0;
-z-index:100;
+color:white;
 }
 
 .logo{
-<header>
+width:220px;
+max-width:90%;
+border-radius:20px;
+margin-bottom:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
 
-<img src="https://raw.githubusercontent.com/welsonluis07-rgb/modas-valentina/main/WhatsApp%20Image%202026-06-05%20at%2012.38.27.jpeg" class="logo">
+header h1{
+font-size:40px;
+}
 
-<h1>Modas Valentina</h1>
-<p>Seu estilo, sua essência</p>
-
-nav{
+header p{
+font-size:18px;
 margin-top:10px;
 }
 
-nav a{
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.menu a{
 color:white;
 text-decoration:none;
-margin:0 10px;
-font-weight:bold;
-}
-
-.hero{
-padding:60px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:40px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.carrinho-topo{
-position:fixed;
-top:20px;
-right:20px;
-background:white;
-padding:10px 15px;
-border-radius:30px;
-box-shadow:0 3px 10px rgba(0,0,0,.2);
 font-weight:bold;
 }
 
@@ -83,7 +65,7 @@ padding:30px;
 
 .card{
 background:white;
-padding:20px;
+padding:15px;
 border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,.1);
 text-align:center;
@@ -91,14 +73,17 @@ text-align:center;
 
 .card img{
 width:100%;
-height:250px;
+height:320px;
 object-fit:cover;
 border-radius:10px;
-margin-bottom:15px;
+}
+
+.card h3{
+margin-top:15px;
 }
 
 .preco{
-font-size:22px;
+font-size:24px;
 font-weight:bold;
 color:#d4af37;
 margin:10px 0;
@@ -108,172 +93,237 @@ margin:10px 0;
 background:#d4af37;
 color:white;
 border:none;
-padding:12px 20px;
+padding:12px 18px;
 border-radius:8px;
 cursor:pointer;
-font-size:16px;
 }
 
-.btn:hover{
-opacity:0.9;
+.carrinho{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+padding:10px 15px;
+border-radius:30px;
+box-shadow:0 3px 10px rgba(0,0,0,.2);
+font-weight:bold;
+cursor:pointer;
 }
 
-.contato{
-padding:50px 20px;
-text-align:center;
+#janelaCarrinho{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:15px;
+width:350px;
+max-width:95%;
+box-shadow:0 5px 30px rgba(0,0,0,.3);
+z-index:999;
+}
+
+#listaCarrinho{
+margin:15px 0;
+}
+
+.itemCarrinho{
+margin-bottom:10px;
+}
+
+.fechar{
+float:right;
+cursor:pointer;
+font-size:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:30px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
 }
 
 footer{
 background:#222;
 color:white;
 text-align:center;
-padding:30px;
-margin-top:40px;
+padding:25px;
+margin-top:30px;
 }
 
 </style>
 </head>
 <body>
 
-<div class="carrinho-topo">
-🛒 Itens: <span id="contador">0</span>
+<div class="carrinho" onclick="abrirCarrinho()">
+🛒 <span id="contador">0</span>
 </div>
 
 <header>
 
-<!-- TROQUE PELO LINK DA SUA LOGO -->
-<img src="logo.png" class="logo">
+<img src="https://raw.githubusercontent.com/welsonluis07-rgb/modas-valentina/main/WhatsApp%20Image%202026-06-05%20at%2012.38.27.jpeg" class="logo">
 
 <h1>Modas Valentina</h1>
 <p>Seu estilo, sua essência</p>
 
-<nav>
-<a href="#">Início</a>
+<div class="menu">
 <a href="#produtos">Produtos</a>
 <a href="#contato">Contato</a>
-</nav>
+</div>
 
 </header>
-
-<section class="hero">
-<h1>Moda Feminina Elegante</h1>
-<p>Peças modernas para valorizar sua beleza.</p>
-</section>
 
 <section id="produtos" class="produtos">
 
 <div class="card">
 <img src="https://raw.githubusercontent.com/welsonluis07-rgb/modas-valentina/main/WhatsApp%20Image%202026-06-19%20at%2012.07.17.jpeg">
-
 <h3>Blusa Feminina com Amarração Atrás</h3>
 <div class="preco">R$ 39,99</div>
-
-<button class="btn" onclick="addCarrinho('Blusa Feminina com Amarração Atrás - R$39,99')">
-Adicionar ao Carrinho
-</button>
+<button class="btn" onclick="addCarrinho('Blusa Feminina com Amarração Atrás - R$39,99')">Adicionar ao Carrinho</button>
 </div>
 
 <div class="card">
 <img src="https://raw.githubusercontent.com/welsonluis07-rgb/modas-valentina/main/WhatsApp%20Image%202026-06-19%20at%2012.08.18.jpeg">
-
 <h3>Blusa Feminina Detalhe na Manga</h3>
 <div class="preco">R$ 34,99</div>
-
-<button class="btn" onclick="addCarrinho('Blusa Feminina Detalhe na Manga - R$34,99')">
-Adicionar ao Carrinho
-</button>
+<button class="btn" onclick="addCarrinho('Blusa Feminina Detalhe na Manga - R$34,99')">Adicionar ao Carrinho</button>
 </div>
 
 <div class="card">
 <img src="https://raw.githubusercontent.com/welsonluis07-rgb/modas-valentina/main/WhatsApp%20Image%202026-06-19%20at%2012.09.28.jpeg">
-
 <h3>Vestido com Abertura Lateral</h3>
 <div class="preco">R$ 39,99</div>
-
-<button class="btn" onclick="addCarrinho('Vestido com Abertura Lateral - R$39,99')">
-Adicionar ao Carrinho
-</button>
+<button class="btn" onclick="addCarrinho('Vestido com Abertura Lateral - R$39,99')">Adicionar ao Carrinho</button>
 </div>
 
 <div class="card">
 <img src="https://raw.githubusercontent.com/welsonluis07-rgb/modas-valentina/main/WhatsApp%20Image%202026-06-19%20at%2012.13.37.jpeg">
-
 <h3>Blusa Feminina</h3>
 <div class="preco">R$ 39,99</div>
-
-<button class="btn" onclick="addCarrinho('Blusa Feminina - R$39,99')">
-Adicionar ao Carrinho
-</button>
+<button class="btn" onclick="addCarrinho('Blusa Feminina - R$39,99')">Adicionar ao Carrinho</button>
 </div>
 
 </section>
 
-</section>
+<div id="janelaCarrinho">
 
-<section class="contato" id="contato">
+<span class="fechar" onclick="fecharCarrinho()">✖</span>
 
-<h2>Finalizar Pedido</h2>
-<br>
+<h2>Meu Carrinho</h2>
+
+<div id="listaCarrinho"></div>
 
 <button class="btn" onclick="finalizarPedido()">
-📲 Comprar pelo WhatsApp
+Finalizar pelo WhatsApp
 </button>
 
-<br><br>
+</div>
 
-<a href="https://www.instagram.com/modasvalentina01" target="_blank">
-📸 Instagram @modasvalentina01
-</a>
+<footer id="contato">
 
-<br><br>
-
-<p>
-📍 Praça Arlindo Rodrigues, 13<br>
-Vitória da Conquista - BA<br>
-CEP 45000-710
-</p>
-
-</section>
-
-<footer>
-
-<p>Modas Valentina</p>
-<p>WhatsApp: (77) 99114-1353</p>
-<p>Email: modasv285@gmail.com</p>
+<p>📍 Praça Arlindo Rodrigues, 13</p>
+<p>Vitória da Conquista - BA</p>
+<br>
+<p>📸 Instagram: @modasvalentina01</p>
+<p>📞 (77) 99114-1353</p>
 
 </footer>
 
+<a class="whatsapp"
+href="https://wa.me/5577991141353"
+target="_blank">
+📱
+</a>
+
 <script>
 
-let carrinho = [];
+let carrinho=[];
 
 function addCarrinho(produto){
 
 carrinho.push(produto);
 
-document.getElementById('contador').innerText =
+document.getElementById("contador").innerText =
 carrinho.length;
 
-alert(produto + " adicionado ao carrinho!");
+}
+
+function abrirCarrinho(){
+
+let lista=document.getElementById("listaCarrinho");
+
+lista.innerHTML="";
+
+if(carrinho.length===0){
+
+lista.innerHTML="Carrinho vazio.";
+
+}else{
+
+carrinho.forEach((item,index)=>{
+
+lista.innerHTML+=`
+<div class="itemCarrinho">
+${item}
+<button onclick="remover(${index})">
+❌
+</button>
+</div>
+`;
+
+});
+
+}
+
+document.getElementById("janelaCarrinho").style.display="block";
+
+}
+
+function fecharCarrinho(){
+
+document.getElementById("janelaCarrinho").style.display="none";
+
+}
+
+function remover(index){
+
+carrinho.splice(index,1);
+
+document.getElementById("contador").innerText=
+carrinho.length;
+
+abrirCarrinho();
 
 }
 
 function finalizarPedido(){
 
-if(carrinho.length === 0){
-alert("Seu carrinho está vazio.");
+if(carrinho.length===0){
+
+alert("Carrinho vazio");
+
 return;
+
 }
 
-let mensagem =
-"Olá! Quero comprar:%0A%0A";
+let msg="Olá! Quero comprar:%0A%0A";
 
 carrinho.forEach(item=>{
-mensagem += "• " + item + "%0A";
+
+msg+="• "+item+"%0A";
+
 });
 
 window.open(
-"https://wa.me/5577991141353?text="+mensagem,
+"https://wa.me/5577991141353?text="+msg,
 "_blank"
 );
 
